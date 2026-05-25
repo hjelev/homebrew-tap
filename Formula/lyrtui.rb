@@ -5,21 +5,21 @@ class Lyrtui < Formula
   if OS.mac?
     if Hardware::CPU.arm?
       url "https://github.com/hjelev/lyrtui/releases/download/0.1.9/lyrtui-aarch64-apple-darwin.tar.xz"
-      sha256 "7b2c3d908b1b124132caefc228e11722e07256d15a20c9dc13019730989dc77b"
+      sha256 "ddb8b1c8e284d9addec97a2364f0dd1bd81ff60bfd25b393072325c238d94fa8"
     end
     if Hardware::CPU.intel?
       url "https://github.com/hjelev/lyrtui/releases/download/0.1.9/lyrtui-x86_64-apple-darwin.tar.xz"
-      sha256 "cdaedc5422f5d070ea7901e9f0362a448d17afdd21760a679418f69faebada3e"
+      sha256 "f7735e7bdf48882cf8e098d6790f4c5f759cb45ddfd8303fa6cbad0b402eaeff"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
       url "https://github.com/hjelev/lyrtui/releases/download/0.1.9/lyrtui-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "3a702ae1eb663a6d0f63c43070da1d8574a4641e140b2f447ba9121139c27f7f"
+      sha256 "60038bd4817340b72af48c57898fc29c73ca9b8fe1d90bd2b6b3c0b067f74f4f"
     end
     if Hardware::CPU.intel?
       url "https://github.com/hjelev/lyrtui/releases/download/0.1.9/lyrtui-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "c5b74771ac2003761ab00c07eccca2baf9892e41897b7b72c4e87b1ea27c2b90"
+      sha256 "6bbdd0fccf566297c0e3b3fe9e5d7c2e2a024e6116f566aea37581611a99628f"
     end
   end
 
