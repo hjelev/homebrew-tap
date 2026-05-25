@@ -1,25 +1,25 @@
 class Lyrtui < Formula
   desc "TUI for Lyrion Music Server"
   homepage "https://github.com/hjelev/lyrtui"
-  version "0.1.7"
+  version "0.1.8"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/hjelev/lyrtui/releases/download/0.1.7/lyrtui-aarch64-apple-darwin.tar.xz"
-      sha256 "1fb69ea3c47a1e8807269daec94e6b6ffebae4372ccf0d4caf86f063d16b39c3"
+      url "https://github.com/hjelev/lyrtui/releases/download/0.1.8/lyrtui-aarch64-apple-darwin.tar.xz"
+      sha256 "a91924b80621e0aaa19215f90eeb583aeec8937e49c76b7acb6a0ed6f7aa2e03"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/hjelev/lyrtui/releases/download/0.1.7/lyrtui-x86_64-apple-darwin.tar.xz"
-      sha256 "b8bfd7a49bb3116d7b631e9d814ea57487af07eeacbd77d481126213564fbe52"
+      url "https://github.com/hjelev/lyrtui/releases/download/0.1.8/lyrtui-x86_64-apple-darwin.tar.xz"
+      sha256 "7f05fd5ba4604062981f76741c74d2cfd07df595dbe908e7b250137a5955136c"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/hjelev/lyrtui/releases/download/0.1.7/lyrtui-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "6b735a9b49826f144d66845f9a5209550883507cb84ae797aaa25e0452a00fa2"
+      url "https://github.com/hjelev/lyrtui/releases/download/0.1.8/lyrtui-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "2210e9c5cb45a1550dc6bbb591d85b119ca3a5bce5c924c15bdaa1f582115387"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/hjelev/lyrtui/releases/download/0.1.7/lyrtui-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "d832557f560b1392b75968eaf24887e261ca5bec88e9a8d44e501bf502ed40ac"
+      url "https://github.com/hjelev/lyrtui/releases/download/0.1.8/lyrtui-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "644001bc190a2e95c5d891d04a31e742637240718232cfddbcc5af94a87f79fe"
     end
   end
 
