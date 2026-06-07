@@ -1,17 +1,66 @@
 class Sb < Formula
-  desc "Simple terminal file manager"
+  desc "Shell Buddy (sb)"
   homepage "https://github.com/hjelev/sb"
-  url "https://github.com/hjelev/sb/archive/refs/tags/v0.6.18.tar.gz"
-  sha256 "c001ee007b13b3f15d043bb7638685d899bd6d6ed71013529936e634eec8c380"
-  license "MIT" # Update if you use a different license
+  version "0.6.18"
+  if OS.mac?
+    if Hardware::CPU.arm?
+      url "https://github.com/hjelev/sb/releases/download/v0.6.18/shell-buddy-aarch64-apple-darwin.tar.xz"
+      sha256 "019b903f66853ab692f61a99069f2edb2e4774ec97f8b2ba382ee2aeaa60afc0"
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/hjelev/sb/releases/download/v0.6.18/shell-buddy-x86_64-apple-darwin.tar.xz"
+      sha256 "2096b0160bce4090ad5695414439348da9e18d533b66bf1d4d157221ca70817e"
+    end
+  end
+  if OS.linux?
+    if Hardware::CPU.arm?
+      url "https://github.com/hjelev/sb/releases/download/v0.6.18/shell-buddy-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "17cc00132b6f3476a1695eaff6f53df4990e7e301b71ff5c58c2b38ecf70eef3"
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/hjelev/sb/releases/download/v0.6.18/shell-buddy-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "35e4e593fd2272b789d76712a316c8161159f750961000049ced3f84826253c8"
+    end
+  end
+  license "MIT"
 
-  depends_on "rust" => :build
+  BINARY_ALIASES = {
+    "aarch64-apple-darwin":          {},
+    "aarch64-unknown-linux-gnu":     {},
+    "armv7-unknown-linux-gnueabihf": {},
+    "x86_64-apple-darwin":           {},
+    "x86_64-unknown-linux-gnu":      {},
+  }.freeze
 
-  def install
-    system "cargo", "install", *std_cargo_args
+  def target_triple
+    cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"
+    os = OS.mac? ? "apple-darwin" : "unknown-linux-gnu"
+
+    "#{cpu}-#{os}"
   end
 
-  test do
-    system "#{bin}/sb", "--version"
+  def install_binary_aliases!
+    BINARY_ALIASES[target_triple.to_sym].each do |source, dests|
+      dests.each do |dest|
+        bin.install_symlink bin/source.to_s => dest
+      end
+    end
+  end
+
+  def install
+    bin.install "sb" if OS.mac? && Hardware::CPU.arm?
+    bin.install "sb" if OS.mac? && Hardware::CPU.intel?
+    bin.install "sb" if OS.linux? && Hardware::CPU.arm?
+    bin.install "sb" if OS.linux? && Hardware::CPU.intel?
+
+    install_binary_aliases!
+
+    # Homebrew will automatically install these, so we don't need to do that
+    doc_files = Dir["README.*", "readme.*", "LICENSE", "LICENSE.*", "CHANGELOG.*"]
+    leftover_contents = Dir["*"] - doc_files
+
+    # Install any leftover files in pkgshare; these are probably config or
+    # sample files.
+    pkgshare.install(*leftover_contents) unless leftover_contents.empty?
   end
 end
