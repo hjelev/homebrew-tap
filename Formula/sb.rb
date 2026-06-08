@@ -1,25 +1,25 @@
 class Sb < Formula
   desc "Shell Buddy (sb)"
   homepage "https://github.com/hjelev/sb"
-  version "0.6.18"
+  version "0.6.19"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/hjelev/sb/releases/download/v0.6.18/shell-buddy-aarch64-apple-darwin.tar.xz"
-      sha256 "019b903f66853ab692f61a99069f2edb2e4774ec97f8b2ba382ee2aeaa60afc0"
+      url "https://github.com/hjelev/sb/releases/download/v0.6.19/shell-buddy-aarch64-apple-darwin.tar.xz"
+      sha256 "2bb7c93180268a5d92d874ddb74e129a5b9253fb692690bb030711aa80cc49f0"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/hjelev/sb/releases/download/v0.6.18/shell-buddy-x86_64-apple-darwin.tar.xz"
-      sha256 "2096b0160bce4090ad5695414439348da9e18d533b66bf1d4d157221ca70817e"
+      url "https://github.com/hjelev/sb/releases/download/v0.6.19/shell-buddy-x86_64-apple-darwin.tar.xz"
+      sha256 "e6bf28c9cd70221183f2dec9df5c03ac7895bbbbc893964137a794f1d6543862"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/hjelev/sb/releases/download/v0.6.18/shell-buddy-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "17cc00132b6f3476a1695eaff6f53df4990e7e301b71ff5c58c2b38ecf70eef3"
+      url "https://github.com/hjelev/sb/releases/download/v0.6.19/shell-buddy-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "57cfc0620773c06e2f40812508289a950da9e0cb536f7d89d3effb8d8686e218"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/hjelev/sb/releases/download/v0.6.18/shell-buddy-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "35e4e593fd2272b789d76712a316c8161159f750961000049ced3f84826253c8"
+      url "https://github.com/hjelev/sb/releases/download/v0.6.19/shell-buddy-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "5ce9fb8842b49fa1a7d1ee119bde5ec13584ceb54479756dcf059358f2fac990"
     end
   end
   license "MIT"
