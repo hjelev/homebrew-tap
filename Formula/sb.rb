@@ -1,25 +1,25 @@
 class Sb < Formula
   desc "Shell Buddy (sb)"
   homepage "https://github.com/hjelev/sb"
-  version "0.11.0"
+  version "0.12.2"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/hjelev/sb/releases/download/v0.11.0/shell-buddy-aarch64-apple-darwin.tar.xz"
-      sha256 "32eb5e43493c6c89393e04c6ede62a3c02fccf28cabd2a4158a9ad246d2fc579"
+      url "https://github.com/hjelev/sb/releases/download/v0.12.2/shell-buddy-aarch64-apple-darwin.tar.xz"
+      sha256 "530cc1a746fc20135375319493338952775cf33e174cdcdee539c184b2ca388a"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/hjelev/sb/releases/download/v0.11.0/shell-buddy-x86_64-apple-darwin.tar.xz"
-      sha256 "08c7cbfe273dab5dac3c35b84df947cdd7fd9d8e234128a9656fd3a64af165bc"
+      url "https://github.com/hjelev/sb/releases/download/v0.12.2/shell-buddy-x86_64-apple-darwin.tar.xz"
+      sha256 "9f3c0889f684d81ebc701d1e99b29f387e501f6e7fd8952254ec6f8a4ce43144"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/hjelev/sb/releases/download/v0.11.0/shell-buddy-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "ed09918ac40202b03c2c973ceb1db4bce312784a6141125d43ac9fa4ae795ba5"
+      url "https://github.com/hjelev/sb/releases/download/v0.12.2/shell-buddy-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "bc5ee45534c62090eb5a2e4ae0a6bddcb8c52f47c6b5d91a401074c0d0d4c93f"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/hjelev/sb/releases/download/v0.11.0/shell-buddy-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "4ddd423ede09339b3b08286f4540b58d87f6f6a5b3e47490465aabecc62eef2c"
+      url "https://github.com/hjelev/sb/releases/download/v0.12.2/shell-buddy-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "be8d4b59fa1f3e748cff8f02f53e852d50b3ebe48ecaf9ca6bb25e9ca61131ef"
     end
   end
   license "MIT"
@@ -48,10 +48,18 @@ class Sb < Formula
   end
 
   def install
-    bin.install "sb" if OS.mac? && Hardware::CPU.arm?
-    bin.install "sb" if OS.mac? && Hardware::CPU.intel?
-    bin.install "sb" if OS.linux? && Hardware::CPU.arm?
-    bin.install "sb" if OS.linux? && Hardware::CPU.intel?
+    if OS.mac? && Hardware::CPU.arm?
+      bin.install "sb"
+    end
+    if OS.mac? && Hardware::CPU.intel?
+      bin.install "sb"
+    end
+    if OS.linux? && Hardware::CPU.arm?
+      bin.install "sb"
+    end
+    if OS.linux? && Hardware::CPU.intel?
+      bin.install "sb"
+    end
 
     install_binary_aliases!
 
